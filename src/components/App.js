@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Layout from './Layout';
 import Home from '../pages/Home';
-
+import Consults from '../pages/Consults';
 /*
 import Badges from '../pages/Badges';
 import BadgeNew from '../pages/BadgeNew';
@@ -25,6 +25,7 @@ function App() {
       <Layout>
         <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/consults" component={Consults} />
         </Switch>
       </Layout>
     </BrowserRouter>
