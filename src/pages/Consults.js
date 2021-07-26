@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 import './styles/Consults.css';
 import confLogo from '../images/badge-header.svg';
-import BadgesList from '../components/ConsultList';
+import ConsultList from '../components/ConsultList';
 import PageLoading from '../components/PageLoading';
 import PageError from '../components/PageError';
 import MiniLoader from '../components/MiniLoader';
 import api from '../api';
 
-class Badges extends React.Component {
+class Consults extends React.Component {
   state = {
     loading: true,
     error: null,
@@ -30,7 +30,8 @@ class Badges extends React.Component {
     this.setState({ loading: true, error: null });
 
     try {
-      const data = await api.badges.list();
+      const data = await api.consults.list();
+      console.log(data)
       this.setState({ loading: false, data: data });
     } catch (error) {
       this.setState({ loading: false, error: error });
@@ -45,6 +46,8 @@ class Badges extends React.Component {
     if (this.state.error) {
       return <PageError error={this.state.error} />;
     }
+
+    console.log(this.state.data)
 
     return (
       <React.Fragment>
@@ -63,11 +66,11 @@ class Badges extends React.Component {
         <div className="Badges__container">
           <div className="Badges__buttons">
             <Link to="/badges/new" className="btn btn-primary">
-              New Badge
+              New Consult
             </Link>
           </div>
 
-          <BadgesList badges={this.state.data} />
+          <ConsultList consults = {this.state.data} />
 
           {this.state.loading && <MiniLoader />}
         </div>
@@ -77,4 +80,4 @@ class Badges extends React.Component {
   }
 }
 
-export default Badges;
+export default Consults;

@@ -22,7 +22,7 @@ async function callApi(endpoint, options = {}) {
 }
 
 const api = {
-  badges: {
+  consults: {
     list() {
       return callApi('/consults');
     },
