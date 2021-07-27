@@ -1,6 +1,25 @@
 {
   "consults": [
     {
+      "id": "60ff4ac86ddbf248b250db71",
+      "fechaConsulta": {
+          "valor": "26/07/2021"
+      },
+      "causaEnfermedad": {
+          "valor": "pelea con pokemon agua"
+      },
+      "sintomas": {
+          "valor": "dolores agudos en las manos y pies"
+      },
+      "estadoRevision": {
+          "valor": false
+      },
+      "idUsuario": "250fe715-88d4-4c18-95e7-62a6a097803a",
+      "idMascotaPokemon": "60ff293050f02053dd8bac3l"
+  }
+  ],
+  "usuarios": [
+    {
       "id": "250fe715-88d4-4c18-95e7-62a6a097803a",
       "nombre": {
         "valor": "juan"
@@ -34,6 +53,66 @@
       },
       "correo": {
         "valor": "juanks9225@gmail.com"
+      }
+    },
+    {
+      "id": "250fe715-88d4-4c18-95e7-62a6a097803r",
+      "nombre": {
+        "valor": "Ana"
+      },
+      "apellido": {
+        "valor": "Hernandez"
+      },
+      "telefono": {
+        "valor": "318417388"
+      },
+      "profesion": {
+        "valor": "maestra pokemon"
+      },
+      "correo": {
+        "valor": "anahernndez@gmail.com"
+      }
+    }
+  ],
+  "pokemon": [
+    {
+      "id": "60ff293050f02053dd8bac3b",
+      "identificacion": {
+          "valor": 1235554
+      },
+      "nombre": {
+          "valor": "Bolbasor"
+      },
+      "raza": {
+          "valor": "Bulbasaur"
+      },
+      "tipo": [
+          {
+              "valor": "planta"
+          }
+      ],
+      "habilidad": {
+          "valor": "Lanzar plantas"
+      }
+    },
+    {
+      "id": "60ff293050f02053dd8bac3l",
+      "identificacion": {
+        "valor": 1235554
+      },
+      "nombre": {
+        "valor": "Changuas"
+      },
+      "raza": {
+        "valor": "Charizard"
+      },
+      "tipo": [
+        {
+            "valor": "fuego"
+        }
+      ],
+      "habilidad": {
+        "valor": "Lanzar fuego"
       }
     }
   ]

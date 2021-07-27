@@ -19,7 +19,7 @@ export default class Home extends Component {
               />
 
               <h1>Usuario Pokemon</h1>
-              <Link className="btn btn-primary" to="/badges">
+              <Link className="btn btn-primary" to="/consults">
                 Start
               </Link>
             </div>

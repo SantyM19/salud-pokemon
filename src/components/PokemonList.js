@@ -8,38 +8,16 @@ class ConsultListItem extends React.Component {
   render() {
     return (
       <div className="BadgesListItem">
-        <Gravatar
-          className="BadgesListItem__avatar"
-          email={this.props.consult[1].correo.valor}
-        />
 
         <div>
           <strong>
-            {this.props.consult[1].nombre.valor} {this.props.consult[1].apellido.valor}
+            {this.props.pokemon.raza.valor}
           </strong>
+          <br/>
+          Nombre: {this.props.pokemon.nombre.valor} 
+          <br />Tipo: {this.props.pokemon.tipo[0].valor}
           <br />
-          {this.props.consult[1].telefono.valor}
-          <br />
-          {this.props.consult[1].profesion.valor}
-          <br />
-          <strong>
-            {this.props.consult[2].raza.valor}
-          </strong>
-          <br />
-          Nombre: {this.props.consult[2].nombre.valor}
-          <br />
-          <strong>
-          Sintomas:
-          </strong>
-          <br />
-           {this.props.consult[0].sintomas.valor}
-          <br />
-          <strong>
-          Causas:
-          </strong>
-          <br /> 
-          {this.props.consult[0].causaEnfermedad.valor}
-
+          Habilidad: {this.props.pokemon.habilidad.valor}
         </div>
       </div>
     );
@@ -52,7 +30,7 @@ function useSearchBadges(consults) {
 
   React.useMemo(() => {
     const result = consults.filter(consult => {
-      return `${consult[1].nombre.valor} ${consult[1].apellido.valor} ${consult[2].nombre.valor} ${consult[2].raza.valor}`
+      return `${consult.nombre.valor} ${consult.raza.valor}`
         .toLowerCase()
         .includes(query.toLowerCase());
     });
@@ -64,9 +42,9 @@ function useSearchBadges(consults) {
 }
 
 function ConsultsList(props) {
-  const consults = props.consults;
-  console.log(consults)
-  const { query, setQuery, filteredBadges } = useSearchBadges(consults);
+  const pokemons = props.pokemon;
+
+  const { query, setQuery, filteredBadges } = useSearchBadges(pokemons);
 
   if (filteredBadges.length === 0) {
     return (
@@ -83,9 +61,9 @@ function ConsultsList(props) {
           />
         </div>
 
-        <h3>No consults were found</h3>
+        <h3>No pokemons were found</h3>
         <Link className="btn btn-primary" to="/consult/new">
-          Create new consult
+          Create new pokemon
         </Link>
       </div>
     );
@@ -108,12 +86,12 @@ function ConsultsList(props) {
       <ul className="list-unstyled">
         {filteredBadges.map(consult => {
           return (
-            <li key={consult[0].id}>
+            <li key={consult.id}>
               <Link
                 className="text-reset text-decoration-none"
                 to={`/consults/${consult.id}`}
               >
-                <ConsultListItem consult={consult} />
+                <ConsultListItem pokemon={consult} />
               </Link>
             </li>
           );

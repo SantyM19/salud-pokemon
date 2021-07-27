@@ -49,6 +49,40 @@ const api = {
       });
     },
   },
+  usuarios: {
+    list() {
+      return callApi('/usuarios');
+    },
+    create(consult) {
+      // throw new Error('500: Server error');
+      return callApi(`/usuarios`, {
+        method: 'POST',
+        body: JSON.stringify(consult),
+      });
+    },
+    read(consultId) {
+      return callApi(`/usuarios/${consultId}`);
+    },
+    update(consultId, updates) {
+      return callApi(`/usuarios/${consultId}`, {
+        method: 'PUT',
+        body: JSON.stringify(updates),
+      });
+    },
+    // Lo hubiera llamado `delete`, pero `delete` es un keyword en JavaScript asi que no es buena idea :P
+    remove(consultId) {
+      return callApi(`/usuarios/${consultId}`, {
+        method: 'DELETE',
+      });
+    },
+  },
+  pokemon: {
+    list() {
+      return callApi('/pokemon');
+    },read(consultId) {
+      return callApi(`/pokemon/${consultId}`);
+    }
+  },
 };
 
 export default api;
